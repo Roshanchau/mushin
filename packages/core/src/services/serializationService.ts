@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { JsonUtils } from "../utils/jsonUtil.js";
+import { JsonUtils } from "../utils";
 
 export class ObjectSerializer {
   static toLogString(obj: any): string {

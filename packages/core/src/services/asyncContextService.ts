@@ -1,6 +1,6 @@
 
 import { AsyncLocalStorage } from "async_hooks";
-import { THREAD_ID, USER_ID } from "../constants/appConstant.js";
+import { THREAD_ID, USER_ID } from "../constants/appConstant";
 
 export type ContextStore = {
     userId?: string;

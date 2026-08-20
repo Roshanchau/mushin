@@ -1,5 +1,4 @@
-import { LoggerLevel } from "../enums/logLevel.js";
-
+import { LoggerLevel } from "../enums/logLevel";
 export interface LogEntry {
   level: LoggerLevel;
   message: string;

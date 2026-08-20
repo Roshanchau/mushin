@@ -1,9 +1,8 @@
 import { LoggerAdapter } from "../interface/adapters/loggerAdapter.js";
 import { LoggerLevel } from "../enums/logLevel.js";
-import { AsyncContextService } from "./asyncContextService.js";
-import { logTimeStamp } from "../utils/dateUtil.js";
 import { LogEntry } from "../interface/logEntry.js";
-
+import { logTimeStamp } from "../utils/dateUtil.js";
+import { AsyncContextService } from "./asyncContextService.js";
 export class LoggerService {
   private static adapter: LoggerAdapter | null = null;
 
