@@ -217,15 +217,6 @@ importers:
         specifier: ^5.7.3
         version: 5.9.3
 
-  muchin-test:
-    dependencies:
-      '@muchin/core':
-        specifier: link:../packages/core
-        version: link:../packages/core
-      '@muchin/winston':
-        specifier: link:../packages/adapters/winston
-        version: link:../packages/adapters/winston
-
   packages/adapters/winston:
     dependencies:
       winston:
