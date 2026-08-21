@@ -2,50 +2,57 @@ import { LoggerService } from "../services";
 import { ObjectSerializer } from "../services";
 
 export function Loggable(): MethodDecorator {
-  return (target, propertyKey, descriptor: PropertyDescriptor) => {
+  return (
+    target: object,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor
+  ) => {
     const originalMethod = descriptor.value;
+
     if (typeof originalMethod !== "function") {
-      throw new TypeError("@Loggable() can only be applied to methods.");
+      throw new TypeError(
+        "@Loggable can only be applied to methods."
+      );
     }
 
-    const className =
-      typeof target === "function" ? target.name : target.constructor.name;
-    const methodName = String(propertyKey);
-    const isAsync = originalMethod.constructor.name === "AsyncFunction";
+    const className = target.constructor.name;
+    const methodName = propertyKey.toString();
 
-    descriptor.value = function (this: unknown, ...args: unknown[]) {
-      const startTime = Date.now();
-      LoggerService.info(`${className}.${methodName} | entry`, {
-        arguments: ObjectSerializer.toLogString(args),
-      });
+    descriptor.value = async function (...args: unknown[]) {
+      const argString = ObjectSerializer.toLogString(args);
 
-      const logExit = (result: unknown) => {
-        LoggerService.info(`${className}.${methodName} | exit`, {
-          response: ObjectSerializer.toLogString(result),
-          timeTaken: `${Date.now() - startTime}ms`,
-        });
-        return result;
-      };
+      LoggerService.info(
+        `${className}.${methodName} | entry | args: ${argString}`
+      );
 
-      const logError = (error: unknown) => {
-        LoggerService.error(
-          `${className}.${methodName} | error`,
-          { timeTaken: `${Date.now() - startTime}ms` },
-          error
-        );
-        throw error;
-      };
+      const start = Date.now();
 
-      if (isAsync) {
-        return (originalMethod.apply(this, args) as Promise<unknown>).then(
-          logExit,
-          logError
-        );
-      }
       try {
-        return logExit(originalMethod.apply(this, args));
-      } catch (error) {
-        logError(error);
+        const result = await originalMethod.apply(this, args);
+
+        const resultString =
+          ObjectSerializer.toLogString(result);
+
+        const timeTaken = Date.now() - start;
+
+        LoggerService.info(
+          `${className}.${methodName} | exit | response: ${resultString} | timeTaken: ${timeTaken}ms`
+        );
+
+        return result;
+      } catch (error: unknown) {
+        const timeTaken = Date.now() - start;
+
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : String(error);
+
+        LoggerService.error(
+          `${className}.${methodName} | error: ${errorMessage} | timeTaken: ${timeTaken}ms`
+        );
+
+        throw error;
       }
     };
 
