@@ -23,7 +23,7 @@
     "node": ">=20"
   },
   "peerDependencies": {
-    "@mushinn/core": "^0.1.0"
+    "@mushinn/core": "^1.0.1"
   },
   "dependencies": {
     "winston": "^3.19.0",
