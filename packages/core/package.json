@@ -1,6 +1,6 @@
 {
   "name": "@mushinn/core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "core implementation",
   "keywords": [],
   "author": "",
@@ -15,12 +15,16 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm,cjs",
     "typecheck": "tsc --noEmit"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "class-transformer": "^0.5.1",
     "reflect-metadata": "^0.2.2"
