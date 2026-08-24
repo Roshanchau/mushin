@@ -1,6 +1,6 @@
 {
   "name": "@mushinn/winston",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Winston adapter for Muchin.",
   "license": "MIT",
   "type": "module",
