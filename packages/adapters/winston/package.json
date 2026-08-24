@@ -23,13 +23,13 @@
     "node": ">=20"
   },
   "peerDependencies": {
-    "@muchin/core": "^0.1.0"
+    "@mushinn/core": "^0.1.0"
   },
   "dependencies": {
     "winston": "^3.19.0",
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
-    "@muchin/core": "workspace:*"
+    "@mushinn/core": "workspace:*"
   }
 }

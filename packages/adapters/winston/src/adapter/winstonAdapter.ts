@@ -7,11 +7,7 @@ import {
 
 import DailyRotateFile from "winston-daily-rotate-file";
 
-import {
-  LoggerAdapter,
-  LogEntry,
-    LoggerLevel
-} from "@muchin/core";
+import { LoggerAdapter, LoggerLevel, LogEntry } from "@mushinn/core";
 
 export interface WinstonAdapterOptions {
   level?: LoggerLevel;
