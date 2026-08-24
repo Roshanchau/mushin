@@ -1,7 +1,6 @@
-import { Loggable } from "@muchin/core";
+import { Loggable, LoggerLevel , LoggerService } from "@mushinn/core";
 
-import { LoggerService, LoggerLevel } from "@muchin/core";
-import { WinstonAdapter } from "@muchin/winston";
+import {WinstonAdapter} from "@mushinn/winston"
 
 LoggerService.configure(
   new WinstonAdapter({
