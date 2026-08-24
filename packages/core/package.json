@@ -1,6 +1,7 @@
 {
   "name": "@mushinn/core",
   "version": "1.0.3",
+  "type": "module",
   "description": "core implementation",
   "keywords": [],
   "author": "",
