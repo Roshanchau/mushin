@@ -11,7 +11,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@muchin/core": "link:../packages/core",
-    "@muchin/winston": "link:../packages/adapters/winston"
+    "@mushinn/core": "link:../packages/core",
+    "@mushinn/winston": "link:../packages/adapters/winston"
   }
 }
