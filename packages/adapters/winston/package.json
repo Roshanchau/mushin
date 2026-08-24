@@ -1,6 +1,6 @@
 {
   "name": "@mushinn/winston",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Winston adapter for Muchin.",
   "license": "MIT",
   "main": "./dist/index.cjs",
