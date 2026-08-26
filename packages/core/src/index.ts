@@ -2,4 +2,5 @@ export * from "./decorators"
 export * from "./utils";
 export * from "./enums";
 export * from "./interface";
-export * from "./services"
+export * from "./services";
+export * from "./middleware";
