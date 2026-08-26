@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm,cjs",
+    "prepublishOnly": "pnpm run build",
     "typecheck": "tsc --noEmit"
   },
   "engines": {
