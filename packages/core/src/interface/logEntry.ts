@@ -3,7 +3,8 @@ export interface LogEntry {
   level: LoggerLevel;
   message: string;
   timestamp: string;
-  attributes: Record<string, unknown>;
+  threadId:string;
+  userId:string;
   error?: unknown;
   traceId?: string;
   spanId?: string;

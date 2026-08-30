@@ -32,7 +32,7 @@ export class WinstonAdapter implements LoggerAdapter {
     this.logger = createLogger({
       level,
 
-      format: format.json(),
+      format: format.json({ deterministic: false }),
 
       transports: [
         new transports.Console(),
@@ -50,9 +50,10 @@ export class WinstonAdapter implements LoggerAdapter {
   log(entry: LogEntry): void {
     this.logger.log({
       level: entry.level,
+      userId: entry.userId,
+      threadId: entry.threadId,
       message: entry.message,
       timestamp: entry.timestamp,
-      attributes: entry.attributes,
       error: entry.error,
     });
   }

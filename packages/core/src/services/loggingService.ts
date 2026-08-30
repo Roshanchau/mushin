@@ -30,50 +30,41 @@ export class LoggerService {
 private static buildEntry(
   level: LoggerLevel,
   message: string,
-  attributes?: Record<string, unknown>
 ): LogEntry {
   return {
     level,
     message,
     timestamp: logTimeStamp(),
-    attributes: {
-      ...attributes,
-      userId: AsyncContextService.getUserId(),
-      threadId: AsyncContextService.getThreadId(),
-    },
+    userId: AsyncContextService.getUserId() || "",
+    threadId: AsyncContextService.getThreadId() || "",
   };
 }
 
   private static log(
     level: LoggerLevel,
-    message: string,
-    context?: Record<string, unknown>
+    message: string
   ): void {
     const entry = this.buildEntry(
       level,
-      message,
-      context
+      message
     );
 
     this.getAdapter().log(entry);
   }
 
   static info(
-    message: string,
-    context?: Record<string, unknown>
+    message: string
   ): void {
-    this.log(LoggerLevel.INFO, message, context);
+    this.log(LoggerLevel.INFO, message);
   }
 
   static error(
     message: string,
-    context?: Record<string, unknown>,
     error?: unknown
   ): void {
     const entry = this.buildEntry(
       LoggerLevel.ERROR,
-      message,
-      context
+      message
     );
 
     entry.error = error;
@@ -82,16 +73,14 @@ private static buildEntry(
   }
 
   static warn(
-    message: string,
-    context?: Record<string, unknown>
+    message: string
   ): void {
-    this.log(LoggerLevel.WARN, message, context);
+    this.log(LoggerLevel.WARN, message);
   }
 
   static debug(
-    message: string,
-    context?: Record<string, unknown>
+    message: string
   ): void {
-    this.log(LoggerLevel.DEBUG, message, context);
+    this.log(LoggerLevel.DEBUG, message);
   }
 }
