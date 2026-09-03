@@ -1,6 +1,6 @@
 {
   "name": "@mushinn/core",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "type": "module",
   "description": "A multi-tenant, extensible logging library for Node.js",
   "keywords": [],
