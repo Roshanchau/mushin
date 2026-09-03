@@ -2,7 +2,7 @@
   "name": "@mushinn/core",
   "version": "1.0.11",
   "type": "module",
-  "description": "core implementation",
+  "description": "A multi-tenant, extensible logging library for Node.js",
   "keywords": [],
   "author": "",
   "license": "ISC",

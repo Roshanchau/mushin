@@ -2,7 +2,7 @@
   "name": "@mushinn/winston",
   "version": "0.1.8",
   "type": "module",
-  "description": "Winston adapter for Muchin.",
+  "description": "Winston adapter for Muchin",
   "license": "MIT",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
